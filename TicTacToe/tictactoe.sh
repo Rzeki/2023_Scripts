@@ -41,6 +41,13 @@ load() {
 		exit
 	fi
 	chars=${str//-}
+	X_amount=${chars//O}
+	O_amount=${chars//X}
+	if [ ${#X_amount} -gt ${#O_amount} ]; then
+		player_turn='O'
+	else
+		player_turn='X'
+	fi
 	moves=${#chars}
     for ((i=1;i<=$n;i++)) do
         for ((j=1;j<=$n;j++)) do
@@ -195,7 +202,7 @@ if [[ $1 == '-l' || $1 == '--load' ]]; then
 fi
 
 #Starting the game with AI
-if [[ $1 == '-A' || $1 == '-AI_Player' ]]; then
+if [[ $1 == '-A' || $1 == '--AI_Player' ]]; then
 	setup
 	AI_opponent=true
 fi
