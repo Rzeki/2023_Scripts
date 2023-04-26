@@ -1,0 +1,165 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - hey there
+    - howdy
+    - heya
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - see ya
+    - farewell
+
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - nah
+
+- intent: thankful
+  examples: |
+    - thanks!
+    - thank you
+    - ty
+    - appreciated
+    - I like that
+    - Great, thanks
+    - You're doing great job
+    - great job
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - so you are a bot?
+    - so you are not human?
+    - are you a machine?
+
+- intent: chitchat/ask_name
+  examples: |
+    - What is your name?
+    - May I know your name?
+    - What do people call you?
+    - Do you have a name for yourself?
+    - How should I call you?
+
+- intent: chitchat/creation
+  examples: |
+    - How were you created?
+    - How do you work?
+    - Are you written in Python?
+    - How are you here?
+    - How can I create similar bot?
+    
+- intent: chitchat/what_can_you_do
+  examples: |
+    - What can you do?
+    - What are your capabilities?
+    - What are your tasks?
+    - What is your purpose?
+    - Can you tell me what you do?
+    - What do you do?
+    - List all of your possibilities
+
+- intent: list_upcoming_matches
+  examples: |
+    - Could you show me all upcoming matches?
+    - Show future matches
+    - Show me all matches
+    - Show matches
+    - Is there something intresting in the future?
+    - List all matches
+
+- intent: list_past_matches
+  examples: |
+    - Could you show me all past matches?
+    - Show me all past matches
+    - Show past matches
+    - Was there something intresting in the past?
+    - List all matches
+
+- intent: list_players
+  examples: |
+    - Could you show me all players?
+    - Show me all players
+    - Show players
+    - Which players are taking part in tournament?
+    - List all players
+    
+
+
+

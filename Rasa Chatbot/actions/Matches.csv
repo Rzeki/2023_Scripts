@@ -1,0 +1,13 @@
+﻿ID;Date;Hour;Team1;T1_Player1;T1_Player2;T1_Player3;Team2;T2_Player1;T2_Player2;T2_Player3;Team_Victory
+1;05.04.2023;19:30:00;TigersX;JohnX;JoeX;JayX;ViperS;Banks;Evander;Onyx;ViperS
+2;06.04.2023;15:30:00;TigersX;JohnX;JoeX;JayX;BearS;Koen;Zyair;Mac;TigerX
+3;09.04.2023;14:20:00;CapibaraS;MayS;AlexS;BayS;ViperS;Banks;Evander;Onyx;ViperS
+4;25.04.2023;19:30:00;CatS;LiamZ;NoahZ;OliverZ;DogS;JamesC;LucasC;HenryC;CatS
+5;11.06.2023;11:00:00;DogS;JamesC;LucasC;HenryC;ViperS;Banks;Evander;Onyx;TBD
+6;21.06.2023;11:00:00;TigersX;JohnX;JoeX;JayX;CatS;LiamZ;NoahZ;OliverZ;TBD
+7;14.05.2023;09:30:00;BearS;Koen;Zyair;Mac;CapibaraS;MayS;AlexS;BayS;TBD
+8;23.05.2023;17:30:00;DogS;JamesC;LucasC;HenryC;TigerX;JohnX;JoeX;JayX;TBD
+9;27.07.2023;17:30:00;CapibaraS;MayS;AlexS;BayS;ViperS;Banks;Evander;Onyx;TBD
+10;20.06.2023;11:00:00;CatS;LiamZ;NoahZ;OliverZ;DogS;JamesC;LucasC;HenryC;TBD
+11;10.05.2023;11:00:00;DogS;JamesC;LucasC;HenryC;ViperS;Banks;Evander;Onyx;TBD
+12;01.05.2023;09:30:00;TigersX;JohnX;JoeX;JayX;CatS;LiamZ;NoahZ;OliverZ;TBD

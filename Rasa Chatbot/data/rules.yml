@@ -1,0 +1,44 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_please_rephrase
+
+- rule: respond to chitchat
+  steps:
+  - intent: chitchat
+  - action: utter_chitchat
+  
+- rule: list all upcoming matches
+  steps:
+  - intent: list_upcoming_matches
+  - action: action_get_upcoming_matches
+
+- rule: list all past matches
+  steps:
+  - intent: list_past_matches
+  - action: action_get_past_matches
+  
+- rule: list all players
+  steps:
+  - intent: list_players
+  - action: action_get_players
+
+- rule: react thankful
+  steps:
+  - intent: thankful
+  - action: utter_thankful
+
