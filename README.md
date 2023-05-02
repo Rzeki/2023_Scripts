@@ -14,3 +14,16 @@ Controls: \
 s - prints current state of the game \
 arrows - moving through grid, lowercase "x" or "o" indicates current space \
 space - placing X or O
+
+## Rasa ChatBot
+Platform: Telegram
+
+Chatbot can: \
+- List all past and future matches \
+- List all players taking part in tournament \
+- Tell something about tournament, his name, how does it work and what can it do
+- Add new match
+- Add new player
+- Edit players in match
+- Tell more about specific player
+
