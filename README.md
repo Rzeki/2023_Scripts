@@ -18,9 +18,9 @@ space - placing X or O
 ## Rasa ChatBot
 Platform: Telegram
 
-Chatbot can: \
-- List all past and future matches \
-- List all players taking part in tournament \
+Chatbot can: 
+- List all past and future matches 
+- List all players taking part in tournament 
 - Tell something about tournament, his name, how does it work and what can it do
 - Add new match
 - Add new player
