@@ -1,0 +1,9 @@
+{
+  "rule_only_slots": [],
+  "rule_only_loops": [
+    "player_add_form",
+    "match_add_form",
+    "match_edit_form",
+    "player_info_form"
+  ]
+}

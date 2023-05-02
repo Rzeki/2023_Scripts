@@ -1,32 +1,58 @@
 version: "3.1"
 
 stories:
-
-- story: happy path
+- story: bot challange, listing upcoming matches, then past matches, info about tournament
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
-
-- story: sad path 1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
-
-- story: sad path 2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: list_upcoming_matches
+  - action: action_get_upcoming_matches
+  - intent: list_past_matches
+  - action: action_get_past_matches
+  - intent: info_about_tournament
+  - action: utter_info_about_tournament
+  - intent: thankful
+  - action: utter_thankful
+  - intent: goodbye
   - action: utter_goodbye
 
+- story: listing past matches, then all players
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: list_past_matches
+  - action: action_get_past_matches
+  - intent: list_players
+  - action: action_get_players
+  - intent: thankful
+  - action: utter_thankful
+  - intent: goodbye
+  - action: utter_goodbye
 
+- story: chitchat, listing all players, bot challenge
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: chitchat
+  - action: utter_chitchat
+  - intent: list_players
+  - action: action_get_players
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: asking about tournament, showing upcoming matches, showing players
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: info_about_tournament
+  - action: utter_info_about_tournament
+  - intent: list_upcoming_matches
+  - action: action_get_upcoming_matches
+  - intent: list_players
+  - action: action_get_players
+  - intent: goodbye
+  - action: utter_goodbye

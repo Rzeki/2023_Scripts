@@ -13,6 +13,12 @@ intents:
   - list_past_matches
   - list_players
   - thankful
+  - add_player
+  - ask_about_player
+  - add_match
+  - edit_players_match
+  - info_about_tournament
+  - telegram_start
 
 responses:
   utter_greet:
@@ -25,6 +31,9 @@ responses:
   - text: "Here is something to cheer you up:"
     image: "https://i.imgur.com/nGF1K8f.jpg"
 
+  utter_telegram_start:
+  - text: "I'm ready!"
+
   utter_did_that_help:
   - text: "Did that help you?"
 
@@ -34,11 +43,68 @@ responses:
   utter_goodbye:
   - text: "Bye"
 
+  utter_ask_player_add_name:
+  - text: "No problem, but first - I need some information about this player. Let's start with his nickname... \nWrite ONLY the nickname of the player, that you want to add!"
+
+  utter_ask_player_add_team:
+  - text: "Okay, now I need the name of the team that this player is in... \nWrite ONLY the name of the team!"
+
+  utter_ask_player_add_kills:
+  - text: "Got it, please write how many kills this player got in this season... \nIf you don't have this information, respond with 0 \nWrite ONLY the number of kills this player got in this season!"
+
+  utter_ask_player_add_deaths:
+  - text: "Got it, please write how many deaths this player got in this season...\nIf you don't have this information, respond with 0 \nWrite ONLY the number of deaths this player got in this season!"
+
+  utter_ask_match_add_date:
+  - text: "Sure, I'm going to ask you few details about this match... \nSo when will this match take place? (date format: dd.mm.yyyy)"
+
+  utter_ask_match_add_hour:
+  - text: "Noted. Now what hour? (hour format: hh:mm:ss)"
+
+  utter_ask_match_add_team1:
+  - text: "Now I'll need name or ID of the FIRST team \nWrite ONLY the name of the team!"
+
+  utter_ask_match_add_team2:
+  - text: "Got it! Give me name or ID of the SECOND team \nWrite ONLY the name of the team!"
+
+  utter_submit_add_player_form:
+  - text: "Ok. Thanks!"
+
+  utter_submit_match_add_form:
+  - text: "Ok. Your match with date {match_add_date} {match_add_hour} - {match_add_team1} vs. {match_add_team2} has been successfully added!"
+
+  utter_submit_match_edit_form:
+  - text: "Ok. Players in match has been changed!"
+
+  utter_ask_match_edit_ID:
+  - text: "Sure, I need to know ID of the match that you want to edit. \nDISCLAIMER: Editing match with players already added will OVERWRITE the data!"
+  
+  utter_ask_match_edit_T1_N1:
+  - text: "Now, Write ONLY the nickname of the FIRST player in FIRST team"
+
+  utter_ask_match_edit_T1_N2:
+  - text: "Now, Write ONLY the nickname of the SECOND player in FIRST team"
+
+  utter_ask_match_edit_T1_N3:
+  - text: "Now, Write ONLY the nickname of the THIRD player in FIRST team"
+
+  utter_ask_match_edit_T2_N1:
+  - text: "Now, Write ONLY the nickname of the FIRST player in SECOND team"
+
+  utter_ask_match_edit_T2_N2:
+  - text: "Now, Write ONLY the nickname of the SECOND player in SECOND team"
+
+  utter_ask_match_edit_T2_N3:
+  - text: "Now, Write ONLY the nickname of the THIRD player in SECOND team"
+
+  utter_slots_values:
+  - text: "Successfully added {player_add_name} from team {player_add_team}!"
+
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
 
-  utter_please_rephrase:
-  - text: "I'm sorry, I didn't quite understand that. Could you rephrase?"
+  utter_ask_player_ID_or_name:
+  - text: "Before I'll show you anything about this player I need to know his ID or nickname \nPlease write this player ID (number) or nickname (text)"
   
   utter_chitchat/ask_name:
   - text: "Hello, my name is E.S.P.O the eSport Bot."
@@ -47,16 +113,197 @@ responses:
   - text: "I was created using Rasa - an open-source framework to build text and voice-based chatbots."
 
   utter_chitchat/what_can_you_do:
-    - text: "Currently I can: \n - List all upcoming matches \n - List all past matches \n - List all players"
+  - text: "Currently I can: \n - List all upcoming matches \n - List all past matches \n - List all players \n- Add a new player to the tournament \n- Tell you more about specific player \n- Add new match \n- Edit players in specific match \n- Tell you more about myself and the tornament"
+
+  utter_info_about_tournament:
+  - text: "The XYZ Esports Tournament is an exciting competition that brings together the best players from around the world to compete in intense battles of skill and strategy. \nFeaturing popular game Nexus Siege, this tournament promises to be a thrilling showcase of top-tier esports talent. \nWith a prize pool of $100,000 and an audience of millions watching online, the pressure is on for these elite players to prove themselves as the best in the world."
+
 
 actions:
   - action_get_upcoming_matches
   - action_get_past_matches
   - action_get_players
+  - action_add_player_to_file
+  - action_reset_slots_add_player_form
+  - action_reset_slots_info_player
+  - action_find_info_player
+  - action_add_match_to_file
+  - action_reset_slots_match_add_form
+  - action_edit_match
+  - action_reset_slots_match_edit_form
 
-# slots:
-#   wanted_date:
-#     type: date
+forms:
+  player_add_form:
+    required_slots:
+      - player_add_name
+      - player_add_team
+      - player_add_kills
+      - player_add_deaths
+  player_info_form:
+    required_slots:
+      - player_ID_or_name
+  match_add_form:
+    required_slots:
+      - match_add_date
+      - match_add_hour
+      - match_add_team1
+      - match_add_team2
+  match_edit_form:
+    required_slots:
+      - match_edit_ID
+      - match_edit_T1_N1
+      - match_edit_T1_N2
+      - match_edit_T1_N3
+      - match_edit_T2_N1
+      - match_edit_T2_N2
+      - match_edit_T2_N3
+  
+  
+
+slots:
+  player_add_name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: player_add_form
+           requested_slot: player_add_name
+
+  player_add_team:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: player_add_form
+           requested_slot: player_add_team
+
+  player_add_kills:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: player_add_form
+           requested_slot: player_add_kills
+  
+  player_add_deaths:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: player_add_form
+           requested_slot: player_add_deaths
+
+  player_ID_or_name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: player_info_form
+           requested_slot: player_ID_or_name
+
+  match_add_date:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: match_add_form
+           requested_slot: match_add_date
+
+  match_add_hour:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: match_add_form
+           requested_slot: match_add_hour
+
+  match_add_team1:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: match_add_form
+           requested_slot: match_add_team1
+
+  match_add_team2:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: match_add_form
+           requested_slot: match_add_team2
+           
+  match_edit_ID:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: match_edit_form
+           requested_slot: match_edit_ID
+
+  match_edit_T1_N1:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: match_edit_form
+           requested_slot: match_edit_T1_N1
+
+  match_edit_T1_N2:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: match_edit_form
+           requested_slot: match_edit_T1_N2
+
+  match_edit_T1_N3:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: match_edit_form
+           requested_slot: match_edit_T1_N3
+
+  match_edit_T2_N1:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: match_edit_form
+           requested_slot: match_edit_T2_N1
+
+  match_edit_T2_N2:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: match_edit_form
+           requested_slot: match_edit_T2_N2
+
+  match_edit_T2_N3:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: match_edit_form
+           requested_slot: match_edit_T2_N3
 
 session_config:
   session_expiration_time: 60

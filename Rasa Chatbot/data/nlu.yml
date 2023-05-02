@@ -111,55 +111,107 @@ nlu:
 
 - intent: chitchat/ask_name
   examples: |
-    - What is your name?
-    - May I know your name?
-    - What do people call you?
-    - Do you have a name for yourself?
-    - How should I call you?
+    - what is your name?
+    - may I know your name?
+    - what do people call you?
+    - do you have a name for yourself?
+    - how should I call you?
 
 - intent: chitchat/creation
   examples: |
-    - How were you created?
-    - How do you work?
-    - Are you written in Python?
-    - How are you here?
-    - How can I create similar bot?
+    - how were you created?
+    - how do you work?
+    - are you written in Python?
+    - how are you here?
+    - how can I create similar bot?
     
 - intent: chitchat/what_can_you_do
   examples: |
-    - What can you do?
-    - What are your capabilities?
-    - What are your tasks?
-    - What is your purpose?
-    - Can you tell me what you do?
-    - What do you do?
-    - List all of your possibilities
+    - what can you do?
+    - what are your capabilities?
+    - what are your tasks?
+    - what is your purpose?
+    - can you tell me what you do?
+    - what do you do?
+    - list all of your possibilities
 
 - intent: list_upcoming_matches
   examples: |
-    - Could you show me all upcoming matches?
-    - Show future matches
-    - Show me all matches
-    - Show matches
-    - Is there something intresting in the future?
-    - List all matches
+    - could you show me all upcoming matches?
+    - show future matches
+    - show me all matches
+    - show upcoming matches
+    - show matches in the future
+    - is there something intresting in the future?
+    - list all matches
+    - what matches are soon?
 
 - intent: list_past_matches
   examples: |
-    - Could you show me all past matches?
-    - Show me all past matches
-    - Show past matches
-    - Was there something intresting in the past?
-    - List all matches
+    - list matches that already ended
+    - show me all past matches
+    - was there something intresting in the past?
+    - list all past matches
+    - show me matches with winners
 
 - intent: list_players
   examples: |
-    - Could you show me all players?
-    - Show me all players
-    - Show players
-    - Which players are taking part in tournament?
-    - List all players
+    - could you show me all players?
+    - show me all players
+    - show players
+    - which players are taking part in tournament?
+    - list all players
+
+- intent: add_player
+  examples: |
+    - i want to add a new player to the tournament
+    - i want to join the tournament
+    - new player
+    - add new player
+    - i wanna add a new player
+
+- intent: telegram_start
+  examples: |
+    - /start
+    - start
+
+- intent: ask_about_player
+  examples: |
+    - i want to know more about a participant of the tournament
+    - show me statistics of a player
+    - i want to know more about player
+    - stats of player
+    - i need statistics about certain player
+    - how many kills this player got?
+    - how many deaths this player got?
+    - info about player
+    - show me info about player
     
+- intent: add_match
+  examples: |
+    - add new match
+    - new match
+    - new match to the tournament
+    - i want to add a new match
+    - could you add a new match to the tournament?
+
+- intent: edit_players_match
+  examples: |
+    - i want to edit match
+    - edit players in the match
+    - swap players
+    - change players in match
+    - remove player from match
+    - add player to the match
+
+- intent: info_about_tournament
+  examples: |
+    - what tournament is this?
+    - what game are they playing?
+    - info about tournament
+    - tell me more about this tournament
+    - information about tournament
+    - what is the prize?
 
 
 

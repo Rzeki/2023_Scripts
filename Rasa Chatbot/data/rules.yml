@@ -7,15 +7,20 @@ rules:
   - intent: goodbye
   - action: utter_goodbye
 
+- rule: telegram /start answer
+  steps:
+  - intent: telegram_start
+  - action: utter_telegram_start
+
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
 
-- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+- rule: info about tournament
   steps:
-  - intent: nlu_fallback
-  - action: utter_please_rephrase
+  - intent: info_about_tournament
+  - action: utter_info_about_tournament
 
 - rule: respond to chitchat
   steps:
@@ -42,3 +47,74 @@ rules:
   - intent: thankful
   - action: utter_thankful
 
+- rule: activate form (add player)
+  steps:
+  - intent: add_player
+  - action: player_add_form
+  - active_loop: player_add_form
+
+- rule: activate form (info about player)
+  steps:
+  - intent: ask_about_player
+  - action: player_info_form
+  - active_loop: player_info_form
+
+- rule: activate form (add match)
+  steps:
+  - intent: add_match
+  - action: match_add_form
+  - active_loop: match_add_form
+
+- rule: activate form (edit match)
+  steps:
+  - intent: edit_players_match
+  - action: match_edit_form
+  - active_loop: match_edit_form
+
+- rule: submit form (edit match)
+  condition:
+  - active_loop: match_edit_form
+  steps:
+  - action: match_edit_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit_match_edit_form
+  - action: action_edit_match
+  - action: action_reset_slots_match_edit_form
+
+- rule: submit form (add match)
+  condition:
+  - active_loop: match_add_form
+  steps:
+  - action: match_add_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit_match_add_form
+  - action: action_add_match_to_file
+  - action: action_reset_slots_match_add_form
+
+- rule: submit form (add player)
+  condition:
+  - active_loop: player_add_form
+  steps:
+  - action: player_add_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit_add_player_form
+  - action: utter_slots_values
+  - action: action_add_player_to_file
+  - action: action_reset_slots_add_player_form
+
+- rule: submit form (info about player)
+  condition:
+  - active_loop: player_info_form
+  steps:
+  - action: player_info_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_find_info_player
+  - action: action_reset_slots_info_player
