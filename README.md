@@ -27,3 +27,8 @@ Chatbot can:
 - Edit players in match
 - Tell more about specific player
 
+## Minecraft Education Castle JS
+approx. time of generation: 5 min 30 sec
+
+<img src="https://imgur.com/a/kHh9D9w" alt="Castle" title="Castle">
+
