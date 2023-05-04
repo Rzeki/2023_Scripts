@@ -30,5 +30,5 @@ Chatbot can:
 ## Minecraft Education Castle JS
 approx. time of generation: 5 min 30 sec
 
-<img src="https://imgur.com/a/kHh9D9w" alt="Castle" title="Castle">
+![My Image](https://imgur.com/a/kHh9D9w)
 
