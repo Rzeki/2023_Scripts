@@ -39,5 +39,5 @@ arrow right - moving right \
 arrow up - rotate piece \
 arrow down - speed up \
 "s" key - save game \
-"l" key - load game from save \
+"l" key - load game from save 
 
