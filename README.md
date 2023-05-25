@@ -32,3 +32,12 @@ approx. time of generation: 5 min 30 sec
 
 <img src="https://i.imgur.com/DnPtQyn.png" width="512"/>
 
+## Lua Love Tetris
+controls:
+arrow left - moving left
+arrow right - moving right
+arrow up - rotate piece
+arrow down - speed up
+"s" key - save game
+"l" key - load game from save
+
