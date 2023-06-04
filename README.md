@@ -41,3 +41,9 @@ arrow down - speed up \
 "s" key - save game \
 "l" key - load game from save 
 
+## Mario Ruby
+controls: \
+arrow left - moving left \
+arrow right - moving right \
+space - jump
+
